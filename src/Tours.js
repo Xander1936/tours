@@ -1,23 +1,28 @@
 import React from 'react';
 import Tour from './Tour';
 
-const Tours = ({ tours, removeTour }) => {
-  return(
+{/* Pass tours and removeTour as props
+    on the Tours component */}
+
+const Tours = ({tours, removeTour}) => {
+  return (
     <section>
       <div className='title'>
-        <h2>our tours</h2>
-        <div className="underline"></div>
+        <h2>Our tours</h2>
+        <div className='underline'></div>
       </div>
+      {/* Map all the tours from the API Array on the Tours Main component 
+      with the removeTour function */}
       <div>
         {tours.map((tour) => {
-          return(
-            //The ternary operator ... grabs all the tour properties in the api
-            <Tour key={tour.id} {...tour} removeTour={removeTour} />
+          return (
+            <Tour key={tour.id}{...tour} 
+            removeTour={removeTour} />
           )
         })}
       </div>
     </section>
-  );
+  ) 
 };
 
 export default Tours;
